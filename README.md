@@ -19,8 +19,7 @@ COPY --from=ghcr.io/simonwoodtli/fsmark:latest /bin/fsmark/where/You/Want
 ```
 docker build -t alpine-fsmark -f- . <<EOF
 FROM alpine:latest
-COPY --from=ghcr.io/simonwoodtli/fsmark:latest /bin/fsmark
-/bin/fsmark
+COPY --from=ghcr.io/simonwoodtli/fsmark:latest /bin/fsmark /bin/fsmark
 EOF
 ```
 
