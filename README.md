@@ -9,7 +9,7 @@ This image contains the current fsmark binary.
 ### CI/Image Install
 
 ```
-COPY --from=ghcr.io/simonwoodtli/fsmark:latest /bin/fsmark/where/You/Want
+COPY --from=ghcr.io/simonwoodtli/fsmark:latest /bin/fsmark /where/You/Want
 ```
 
 ### Local install
