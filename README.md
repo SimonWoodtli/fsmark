@@ -17,16 +17,28 @@ COPY --from=ghcr.io/simonwoodtli/fsmark:latest /bin/fsmark /where/You/Want
 1. Build image: 
 
 ```
-docker build -t alpine-fsmark -f- . <<EOF
+podman build -t alpine-fsmark -f- . <<EOF
 FROM alpine:latest
 COPY --from=ghcr.io/simonwoodtli/fsmark:latest /bin/fsmark /bin/fsmark
 EOF
 ```
 
-2. Copy fsmark to your host: 
+2. Run container in detached mode:
 
 ```
-docker run --rm -v $HOME/.local/bin:/mnt alpine-fsmark sh -c "install /bin/fsmark /mnt"
+podman run -dt localhost/alpine-fsmark
+```
+
+3. Get Container ID: 
+
+```
+podman ps
+```
+
+4. Copy fsmark to your host: 
+
+```
+podman cp <containerId>:/bin/fsmark /where/You/Want
 ```
 
 Related:
